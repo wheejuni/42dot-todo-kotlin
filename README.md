@@ -1,4 +1,5 @@
 # 42dot Coding Interview
+* 면접관이 요구하는 기능 순서로 구현을 시작합니다.
 
 ## GOAL
 
