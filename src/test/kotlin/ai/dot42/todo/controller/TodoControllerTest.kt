@@ -34,8 +34,7 @@ class TodoControllerTest : FunSpec() {
             } returns expectedTodoIdList
 
             mockMvc.perform(
-//                MockMvcRequestBuilders.get("{fix it restful uri}")
-                        MockMvcRequestBuilders.get("/v1/todos")
+                MockMvcRequestBuilders.get("{fix it restful uri}")
             )
                 .andExpect(status().isOk)
                 .andExpect{ result ->
@@ -58,8 +57,7 @@ class TodoControllerTest : FunSpec() {
 
 
             mockMvc.perform(
-//                MockMvcRequestBuilders.get("{fix it restful uri}", idToFind)
-                MockMvcRequestBuilders.get("/v1/todo/{id}", idToFind)
+                MockMvcRequestBuilders.get("{fix it restful uri}", idToFind)
             )
                 .andExpect(status().isOk)
                 .andExpect{ result ->
@@ -79,8 +77,7 @@ class TodoControllerTest : FunSpec() {
             every { todoService.createTodo(any(), any()) } returns createdTodo
 
             mockMvc.perform(
-//                MockMvcRequestBuilders.request("적당한 http method를 넣어주세요", "{fix it restful uri}")
-                MockMvcRequestBuilders.request(HttpMethod.POST, "/v1/todo")
+                MockMvcRequestBuilders.request("적당한 http method를 넣어주세요", "{fix it restful uri}")
                     .contentType("application/json")
                     .content(objectMapper.writeValueAsString(request))
             )
@@ -103,8 +100,7 @@ class TodoControllerTest : FunSpec() {
             every { todoService.updateTodo(updatedTodo) } returns updatedTodo
 
             mockMvc.perform(
-//                MockMvcRequestBuilders.request("적당한 HTTP METHOD를 넣어주세요", "{fix it restful uri}")
-                        MockMvcRequestBuilders.request(HttpMethod.PUT, "/v1/todo")
+                MockMvcRequestBuilders.request("적당한 HTTP METHOD를 넣어주세요", "{fix it restful uri}")
                     .contentType("application/json")
                     .content(objectMapper.writeValueAsString(updatedTodo))
             )
@@ -125,8 +121,7 @@ class TodoControllerTest : FunSpec() {
             every { todoService.deleteTodoById(idToDelete) } returns Unit
 
             mockMvc.perform(
-//                MockMvcRequestBuilders.request("적당한 HTTP METHOD를 넣어주세요","{fix it restful uri}", idToDelete)
-                        MockMvcRequestBuilders.request(HttpMethod.DELETE,"/v1/todo/{id}", idToDelete)
+                MockMvcRequestBuilders.request("적당한 HTTP METHOD를 넣어주세요","{fix it restful uri}", idToDelete)
             )
                 .andExpect(status().isOk)
                 .andExpect { result ->
